@@ -20,13 +20,15 @@ public abstract class AbstractDto implements Serializable {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long id;
 
+    protected String kafkaTransportInfo;
+
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSS")
     private LocalDateTime created;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    /*@JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSS")
-    private LocalDateTime updated;
+    private LocalDateTime updated;*/
 
     public AbstractDto() {
     }
@@ -34,7 +36,7 @@ public abstract class AbstractDto implements Serializable {
     public AbstractDto(Long id, LocalDateTime created, LocalDateTime updated) {
         this.id = id;
         this.created = created;
-        this.updated = updated;
+        //this.updated = updated;
     }
 
     public Long getId() {

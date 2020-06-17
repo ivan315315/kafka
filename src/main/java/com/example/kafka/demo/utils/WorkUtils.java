@@ -20,4 +20,21 @@ public class WorkUtils {
             throw new RuntimeException("Writing value to JSON failed: " + dto.toString());
         }
     }
+
+    public static void setTransportInfoSend(String topic, Integer partition, PersonDto personDto) {
+        String topicInfo = "ACTION-[send]"
+                + " topic-[" + topic + "]"
+                + " partitionSend-[" + partition + "]";
+        personDto.setKafkaTransportInfo(topicInfo);
+    }
+
+    public static void setTransportInfoReceive(String topic, Integer partition, PersonDto personDto, String listener) {
+        String topicInfo = personDto.getKafkaTransportInfo()
+                //+ '\n'
+                + " ACTION-[receive]"
+                + " topic-[" + topic + "]"
+                + " partitionConfigRead-[" + partition + "]"
+                + " listener-[" + listener + "]";
+        personDto.setKafkaTransportInfo(topicInfo);
+    }
 }

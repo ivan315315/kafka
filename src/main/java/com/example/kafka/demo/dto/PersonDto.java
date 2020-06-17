@@ -22,4 +22,12 @@ public class PersonDto extends AbstractDto {
         this.lastName = lastName;
         this.docDto = docDto;
     }
+
+    public String getKafkaTransportInfo() {
+        return kafkaTransportInfo;
+    }
+
+    public void setKafkaTransportInfo(String kafkaTransportInfo) {
+        this.kafkaTransportInfo = kafkaTransportInfo;
+    }
 }

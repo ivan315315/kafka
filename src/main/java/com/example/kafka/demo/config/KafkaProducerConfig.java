@@ -45,4 +45,9 @@ public class KafkaProducerConfig {
         template.setMessageConverter(new StringJsonMessageConverter());
         return template;
     }
+
+    @Bean
+    public KafkaPersonTemplateWrapped kafkaTemplatePersonWrapped() {
+        return new KafkaPersonTemplateWrapped(kafkaTemplatePerson());
+    }
 }
